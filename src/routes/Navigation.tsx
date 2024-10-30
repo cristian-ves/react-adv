@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import logo from '../logo.svg';
-import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
+import { routes } from "../01-lazyload/routes/routes";
 
 
 export const Navigation = () => {
@@ -17,28 +17,20 @@ export const Navigation = () => {
         <nav>
           <img src={logo} alt="React logo" />
           <ul>
-            <li>
-              <NavLink to="/lazy1" activeClassName="nav-active" exact>Lazy 1</NavLink>
-            </li>
-            <li>
-              <NavLink to="/lazy2" activeClassName="nav-active" exact>Lazy 2</NavLink>
-            </li>
-            <li>
-              <NavLink to="/lazy3" activeClassName="nav-active" exact>Lazy 3</NavLink>
-            </li>
+            {routes.map(({path, name}) => (
+              <li>
+                <NavLink to={path} activeClassName="nav-active" exact>{name}</NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <Switch>
-          <Route path="/lazy1">
-            <LazyPage1 />
-          </Route>
-          <Route path="/lazy2">
-            <LazyPage2 />
-          </Route>
-          <Route path="/lazy3">
-            <LazyPage3 />
-          </Route>
+          {routes.map(({path, Component}) => (
+            <Route path={path}>
+              <Component/>
+            </Route>
+          ))}
         </Switch>
       </div>
     </Router>
