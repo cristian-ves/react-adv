@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,8 +6,6 @@ import {
 } from "react-router-dom";
 
 import logo from '../logo.svg';
-import { routes } from "../01-lazyload/routes/routes";
-
 
 export const Navigation = () => {
   return (
@@ -17,20 +14,29 @@ export const Navigation = () => {
         <nav>
           <img src={logo} alt="React logo" />
           <ul>
-            {routes.map(({path, name}) => (
-              <li>
-                <NavLink to={path} activeClassName="nav-active" exact>{name}</NavLink>
-              </li>
-            ))}
+            <li>
+              <NavLink to={'/home'} activeClassName="nav-active" exact>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/about'} activeClassName="nav-active" exact>About</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/users'} activeClassName="nav-active" exact>Users</NavLink>
+            </li>
           </ul>
         </nav>
 
         <Switch>
-          {routes.map(({path, Component}) => (
-            <Route path={path}>
-              <Component/>
-            </Route>
-          ))}
+          <Route path={'/home'}>
+            <h1>Home</h1>
+          </Route>
+          <Route path={'/about'}>
+            <h1>About</h1>
+          </Route>
+          <Route path={'/users'}>
+            <h1>Users</h1>
+          </Route>
+          
         </Switch>
       </div>
     </Router>
