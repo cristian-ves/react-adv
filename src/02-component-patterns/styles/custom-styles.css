@@ -24,3 +24,9 @@
     color: rgb(219, 219, 219);
     border-color: rgb(219, 219, 219);
 }
+
+.shopping-cart {
+    position: fixed;
+    right: 10px;
+    top: 0;
+}
