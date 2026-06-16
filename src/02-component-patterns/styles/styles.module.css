@@ -1,3 +1,5 @@
+
+
 .productCard {
     background-color: white;
     border-radius: 15px;
@@ -41,6 +43,7 @@
     border-top: 1px solid black;
     font-size: 16px;
     height: 25px;
+    padding-top: 5px;
     text-align: center;
     width: 30px;
 }
@@ -58,13 +61,6 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.buttonMinus,
-.buttonAdd,
-.countLabel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .disabled {
     border-color: grey !important;
