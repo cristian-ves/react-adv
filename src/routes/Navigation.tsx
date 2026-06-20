@@ -1,5 +1,12 @@
-import { BrowserRouter, NavLink } from "react-router-dom";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, NavLink, Routes, Route, Navigate } from "react-router-dom";
+
+import {
+    FromikBasicPage,
+    FromikComponents,
+    FromikYupPage,
+    RegisterPage,
+    FormikAbstractation,
+} from "../03-forms/pages";
 
 import logo from "../logo.svg";
 
@@ -13,22 +20,52 @@ export const Navigation = () => {
                         <ul>
                             <li>
                                 <NavLink
-                                    to="/home"
+                                    to="/register"
                                     className={({ isActive }) =>
                                         isActive ? "nav-active" : ""
                                     }
                                 >
-                                    Home
+                                    Register
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
-                                    to="/about"
+                                    to="/formik-basic"
                                     className={({ isActive }) =>
                                         isActive ? "nav-active" : ""
                                     }
                                 >
-                                    About
+                                    Formik Basic
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/formik-yup"
+                                    className={({ isActive }) =>
+                                        isActive ? "nav-active" : ""
+                                    }
+                                >
+                                    Formik Yup
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/formik-components"
+                                    className={({ isActive }) =>
+                                        isActive ? "nav-active" : ""
+                                    }
+                                >
+                                    Formik Components
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/formik-abstractation"
+                                    className={({ isActive }) =>
+                                        isActive ? "nav-active" : ""
+                                    }
+                                >
+                                    Formik Abstractation
                                 </NavLink>
                             </li>
                             <li>
@@ -46,12 +83,15 @@ export const Navigation = () => {
 
                     <Routes>
                         <Route path="about" element={<h1>about page</h1>} />
-                        <Route path="users" element={<h1>users page</h1>} />
-                        <Route path="home" element={<h1>home page</h1>} />
+                        <Route path="formik-basic" element={<FromikBasicPage />} />
+                        <Route path="formik-yup" element={<FromikYupPage />} />
+                        <Route path="formik-components" element={<FromikComponents />} />
+                        <Route path="formik-abstractation" element={<FormikAbstractation />} />
+                        <Route path="register" element={<RegisterPage />} />
 
                         <Route
                             path="/*"
-                            element={<Navigate to="/home" replace />}
+                            element={<Navigate to="/register" replace />}
                         />
                     </Routes>
                 </div>
