@@ -6,6 +6,8 @@ import {
     FromikYupPage,
     RegisterPage,
     FormikAbstractation,
+    RegisterFormikPage,
+    DynamicForm,
 } from "../03-forms/pages";
 
 import logo from "../logo.svg";
@@ -70,6 +72,26 @@ export const Navigation = () => {
                             </li>
                             <li>
                                 <NavLink
+                                    to="/formik-register"
+                                    className={({ isActive }) =>
+                                        isActive ? "nav-active" : ""
+                                    }
+                                >
+                                    Register formik
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/dynamic-form"
+                                    className={({ isActive }) =>
+                                        isActive ? "nav-active" : ""
+                                    }
+                                >
+                                    Dynamic Form
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
                                     to="/users"
                                     className={({ isActive }) =>
                                         isActive ? "nav-active" : ""
@@ -88,6 +110,8 @@ export const Navigation = () => {
                         <Route path="formik-components" element={<FromikComponents />} />
                         <Route path="formik-abstractation" element={<FormikAbstractation />} />
                         <Route path="register" element={<RegisterPage />} />
+                        <Route path="formik-register" element={<RegisterFormikPage />} />
+                        <Route path="dynamic-form" element={<DynamicForm />} />
 
                         <Route
                             path="/*"
